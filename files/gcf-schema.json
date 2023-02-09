@@ -7,10 +7,45 @@
     "properties": {
         "function": {
             "description": "Configuration set for a Google Cloud Function",
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "name" : {
+                    "type": "string"
+                },
+                "provider" : {
+                    "type": "object",
+                    "properties": {
+                        "project": {
+                            "type": "string"
+                        },
+                        "region": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [ "project", "region" ]
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "allow-unauthenticated": {
+                            "type": "boolean",
+                            "description": "If set, makes this a public function. This will allow all callers, without checking authentication."
+                        },
+                        "no-allow-unauthenticated": {
+                            "type": "boolean",
+                            "description": "If set, makes this a private function. The function will require authentication. Manage authorized users with Cloud IAM."
+                        },
+                        "gen2": {
+                            "type": "boolean",
+                            "description": "If enabled, the deployment will use Cloud Functions Second generation."
+                        }
+                    }
+                }
+
+            },
+            "required": [ "name", "provider", "config" ]
         }
 
     },
     "required": [ "function"]
-
   }
