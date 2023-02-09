@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/gcf.schema.json",
+    "title": "Google Cloud Function Config",
+    "description": "Configuration options for deploying Google Cloud Function through automation",
+    "type": "object",
+    "properties": {
+        "function": {
+            "description": "Configuration set for a Google Cloud Function",
+            "type": "object"
+        }
+
+    },
+    "required": [ "function"]
+
+  }
