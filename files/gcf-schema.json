@@ -1,5 +1,5 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "$id": "https://example.com/gcf.schema.json",
     "title": "Google Cloud Function Config",
     "description": "Configuration options for deploying Google Cloud Function through automation",
