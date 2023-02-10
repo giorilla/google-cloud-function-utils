@@ -58,6 +58,18 @@
                         "security-level": {
                             "enum": [ "secure-alwasy", "secure-optional" ],
                             "description": "Security level controls whether a function's URL supports HTTPS only or both HTTP and HTTPS. By default, secure-always will be used, meaning only HTTPS is supported."
+                        },
+                        "serve-all-traffic-latest-revision": {
+                            "type": "boolean",
+                            "description": "If specified, latest function revision will be served all traffic."
+                        },
+                        "source": {
+                            "type": "string",
+                            "description": "Location of source code to deploy.  Location of the source can be one of the following three options: Source code in Google Cloud Storage (must be a .zip archive), Reference to source repository or, Local filesystem path (root directory of function source).  Note that, depending on your runtime type, Cloud Functions will look for files with specific names for deployable functions. For Node.js, these filenames are index.js or function.js. For Python, this is main.py.  If you do not specify the --source flag: The current directory will be used for new function deployments.  If the function was previously deployed using a local filesystem path, then the function's source code will be updated using the current directory.  If the function was previously deployed using a Google Cloud Storage location or a source repository, then the function's source code will not be updated.  The value of the flag will be interpreted as a Cloud Storage location, if it starts with gs://.  The value will be interpreted as a reference to a source repository, if it starts with https://.  Otherwise, it will be interpreted as the local filesystem path. When deploying source from the local filesystem, this command skips files specified in the .gcloudignore file (see gcloud topic gcloudignore for more information). If the .gcloudignore file doesn't exist, the command will try to create it.  When deploying a function from a local directory, this flag's value is the name of the Google Cloud Storage bucket in which source code will be stored. Note that if you set the --stage-bucket flag when deploying a function, you will need to specify --source or --stage-bucket in subsequent deployments to update your source code. To use this flag successfully, the account in use must have permissions to write to this bucket. For help granting access, refer to this guide: https://cloud.google.com/storage/docs/access-control/"
+                        },
+                        "vpc-connector": {
+                            "type": "string",
+                            "description": "The VPC Access connector that the function can connect to. Necessary only if the function needs to access other Google services that run on private networks (like the Cloud SQL instance).  Usually this value would be passed from a secret on the pipeline, so just keep the value as $VPC_CONNECTOR for the secret to be de-refenced."
                         }
                     }
                 }
